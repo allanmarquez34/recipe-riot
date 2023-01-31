@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
- get '/hello', to: 'application#hello_world'
+  resources :followers
+  resources :likes
+  resources :comments
+  resources :bookmarks
+  resources :posts
+  resources :users
+
 end
