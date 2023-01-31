@@ -81,6 +81,5 @@ test:
 #
 production:
   <<: *default
-  database: recipe_riot_production
-  username: recipe_riot
-  password: <%= ENV["RECIPE_RIOT_DATABASE_PASSWORD"] %>
+   url: <%= ENV['DATABASE_URL'] %>
+
