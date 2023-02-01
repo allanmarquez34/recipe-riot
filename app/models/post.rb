@@ -1,12 +1,12 @@
 class Post < ApplicationRecord
   has_many :comments
-  has_many :bookmarsk
+  has_many :bookmarks
   has_many :likes
 
-  has_many :users trough: :likes
-  has_many :users trough: :comments
-  has_many :users trough: :bookmarks
-  
-  belongs_to :Users
+  has_many :users, through: :likes
+  has_many :users, through: :comments
+  has_many :users, through: :bookmarks
+
+  belongs_to :user
 
 end
