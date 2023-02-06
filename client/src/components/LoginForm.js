@@ -39,7 +39,7 @@ function LoginForm({onLogin}){
         <label>Password</label>
        <input 
        type="password"
-       id="password"
+       id="password_digest"
        autoComplete="off"
        value={password}
        onChange={(e) => setPassword(e.target.value)}

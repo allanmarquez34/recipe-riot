@@ -4,16 +4,6 @@ import Login from "./components/Login";
 import Home from "./components/Home"
 
 function App() {
-// const [test, setTest] = useState("")
-
-// useEffect(() => {
-//   fetch("/posts")
-//   .then((r) => r.json())
-//   .then(data => {
-//     setTest(data)
-//   })
-// })
-// console.log(test)
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -26,11 +16,13 @@ function App() {
 
 
   if (!user) return <Login onLogin={setUser} />;
-
+  
   return (
     <BrowserRouter>
     <Switch>
-       <Home/>
+      <Route>
+        <Home/>
+       </Route>
     </Switch>
     </BrowserRouter>
   );

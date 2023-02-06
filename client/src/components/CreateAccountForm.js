@@ -5,7 +5,7 @@ function CreateAccountForm({onLogin}){
     const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
-    const [birthday, setBirthday ] = useState("")
+    // const [birthday, setBirthday ] = useState("")
     const [image, setImage] = useState("")
     const [backgroundImage, setBackgroundImage] = useState("")
     const [errors, setErrors] = useState([]);
@@ -23,14 +23,14 @@ function CreateAccountForm({onLogin}){
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            firstName,
-            lastName,
-            birthday,
+            first_name: firstName,
+            last_name: lastName,
+            // birthday,
             image,
-            backgroundImage,
+            background_image: backgroundImage,
             username,
             email,
-            password,
+            password_digest: password,
             password_confirmation: passwordConfirmation,
     
           }),
