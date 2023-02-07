@@ -1,11 +1,18 @@
-import React,{useState} from "react"
+import React,{useState, useEffect} from "react"
+import PostCard from "./PostCard"
 
-function Home(){
-    const [posts, SetPosts] = useState([])
+function Home({posts}){
 
+    const mappedPosts = posts.map(onePost => {
+
+        return <PostCard
+                key={onePost.id}
+                posts={onePost}/>
+    })
+    
 return(
     <div>
-        <p>hi</p>
+        {mappedPosts}
     </div>
 )
 }

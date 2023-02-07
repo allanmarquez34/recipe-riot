@@ -9,10 +9,11 @@ class ApplicationController < ActionController::API
     private
   
     def current_user
-      user = User.find_by(id: session[:user_id])
+      @current_user = User.find_by(id: session[:user_id])
     end
     
     def authorize
+
       render json: { errors: ["Not authorized"] }, status: :unauthorized unless session.include? :user_id
     end
   
