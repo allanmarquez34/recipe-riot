@@ -12,16 +12,13 @@ function NavBar({setUser}){
 
     return(
         <nav>
-            <Link exact to="/">
+            <Link to="/">
                 Recipe Riot
             </Link>
-            <NavLink to="post">
+            <NavLink to="/post">
                 Make post
             </NavLink>
-            <NavLink to ="bookmark">
-                Bookmarks
-            </NavLink>
-            <NavLink to="profile">
+            <NavLink to="/account">
                 Profile
             </NavLink>
             <button onClick={handleLogoutClick}>

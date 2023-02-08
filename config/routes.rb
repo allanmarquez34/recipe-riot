@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   get "/posts", to: "posts#index"
+  get "user_posts/:id", to: "posts#user_posts"
 
 end

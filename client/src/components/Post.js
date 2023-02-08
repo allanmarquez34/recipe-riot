@@ -2,7 +2,6 @@ import React,{useState} from "react"
 import { useHistory } from "react-router-dom"
 
 function Post({onMakePost, user}){
-    console.log(user)
     const [formData, setFormData] = useState({
         recipeName:"",
         recipeImage:"",

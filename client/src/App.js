@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import Home from "./components/Home"
 import NavBar from "./components/NavBar";
 import Post from "./components/Post";
+import Account from "./components/Account";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -22,9 +23,6 @@ function App() {
       }
     });
   }, []);
-  
-
-  console.log(user)
 
   function handleMakePost(newPost){
     setPosts([...posts, newPost])
@@ -39,8 +37,11 @@ function App() {
         <Route exact path = "/">
           <Home posts={posts}/>
         </Route>
-        <Route>
+        <Route path = "/post">
           <Post onMakePost ={handleMakePost} user={user} />
+        </Route>
+        <Route path = "/account">
+          <Account  user={user} posts={posts}/>
         </Route>
       </Switch>
     </BrowserRouter>

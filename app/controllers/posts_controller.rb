@@ -17,6 +17,12 @@ class PostsController < ApplicationController
 
     # end
 
+    def user_posts
+        user = User.find(params[:id])
+        posts = Post.where("user_id =?", params[:id])
+        render json: posts
+    end
+
     def create
         puts post_params
         posts = Post.create!(post_params)
