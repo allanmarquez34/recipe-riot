@@ -46,6 +46,10 @@ function App() {
     });
   }
 
+  const onPostDelete = (postId) => {
+    setPosts(posts => posts.filter(p => p.id !== postId))
+  };
+
   if (!user) return <Login onLogin={setUser} />;
   
   return (
@@ -70,7 +74,8 @@ function App() {
           <Account  
             user={user}
             posts={posts}
-            onSelectedPost={setSelectedPost}/>
+            onSelectedPost={setSelectedPost}
+            onPostDelete={onPostDelete}/>
         </Route>
 
         <Route path="/edit_account">

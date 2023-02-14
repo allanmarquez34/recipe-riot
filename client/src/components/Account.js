@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react"
 import ProfilePosts from "./ProfilePosts"
 import { Link } from "react-router-dom"
 
-function Account({user, posts, onSelectedPost}){
+function Account({user, posts, onSelectedPost, onPostDelete}){
     const [submissions, userSubmissions] = useState([])
+
     useEffect(() => {
         fetch(`/user_posts/${user.id}`)
         .then((r) => r.json())
@@ -14,8 +15,10 @@ function Account({user, posts, onSelectedPost}){
         return <ProfilePosts key={submission.id}
                              submissions={submission}
                               user={user} posts={submission}
-                               onSelectedPost={onSelectedPost}/>
+                               onSelectedPost={onSelectedPost}
+                               onPostDelete={onPostDelete}/>
     })
+   
 
     return(
         <div>

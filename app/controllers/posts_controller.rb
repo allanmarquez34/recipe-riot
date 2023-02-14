@@ -21,6 +21,13 @@ class PostsController < ApplicationController
         post = find_post.update!(post_params)
         render json: post, status: :accepted
     end
+
+    def destroy
+        post = find_post
+        post.destroy
+        head :no_contnent
+    end 
+
     private 
 
     def post_params
