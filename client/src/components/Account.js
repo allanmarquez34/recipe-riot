@@ -1,20 +1,9 @@
 import React, { useState, useEffect } from "react"
 import ProfilePosts from "./ProfilePosts"
+import { Link } from "react-router-dom"
 
-function Account({user, posts}){
-    // console.log(posts)
-    // console.log(user)
-
-    // const profilePosts = []
-
-    // posts.map((post) => {
-    //     if(post.user_id === user.id)
-    //         profilePosts.push(post)
-    //         console.log(post.user_id)
-    // })
-
+function Account({user, posts, onSelectedPost}){
     const [submissions, userSubmissions] = useState([])
-
     useEffect(() => {
         fetch(`/user_posts/${user.id}`)
         .then((r) => r.json())
@@ -22,9 +11,11 @@ function Account({user, posts}){
     }, [user])
 
     const mappedPosts = submissions.map(submission => {
-        return <ProfilePosts key={submission.id} submissions={submission} user={user}/>
+        return <ProfilePosts key={submission.id}
+                             submissions={submission}
+                              user={user} posts={submission}
+                               onSelectedPost={onSelectedPost}/>
     })
-
 
     return(
         <div>
@@ -32,13 +23,10 @@ function Account({user, posts}){
                 <h1>Profile</h1>
                 <img src={user.background_image}/>
                 <img src={user.image}/>
-                <h2>welcome back {user.first_name}</h2>
-                <h3>{user.first_name}</h3>
-                <h3>{user.last_name}</h3>
-                <h3>{user.email}</h3>
-                <h3>{user.username}</h3>
+                <h3>{user.first_name} {user.last_name}</h3>
+                <p>@{user.username} {user.email}</p>
             </section>
-             <button>update user</button>
+             <Link to="/edit_account">update user</Link>
             <section>
                 {mappedPosts}
             </section>

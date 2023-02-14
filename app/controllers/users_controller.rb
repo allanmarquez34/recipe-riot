@@ -15,6 +15,12 @@ class UsersController < ApplicationController
       def show 
           render json: current_user
       end
+
+      def update
+        user = logged_on_user.find(params[:id])
+        user.update!(user_params)
+        render json: user, status: :accepted
+    end 
   
       private
       def user_params

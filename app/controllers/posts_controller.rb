@@ -5,18 +5,6 @@ class PostsController < ApplicationController
         render json: posts, status: :ok
     end
 
-    # def create
-    #     post = @current_user.posts.create!(post_params)
-    #     render json: post, status: :created
-    #   end
-
-    # def create 
-    #     post = Post.create(post_params)
-    #     posts = @current_user.post
-    #     render json: posts, status: :created
-
-    # end
-
     def user_posts
         user = User.find(params[:id])
         posts = Post.where("user_id =?", params[:id])
@@ -29,6 +17,10 @@ class PostsController < ApplicationController
         render json: posts, status: :created
     end
 
+    def update
+        post = find_post.update!(post_params)
+        render json: post, status: :accepted
+    end
     private 
 
     def post_params
@@ -36,5 +28,9 @@ class PostsController < ApplicationController
                     :recipe_description, :recipe_ingredient, 
                     :recipe_difficulty, :prep_time, :cook_time, 
                    :user_id)
+    end
+
+    def find_post
+        Post.find(params[:id])
     end
 end

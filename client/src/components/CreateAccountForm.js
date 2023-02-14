@@ -44,6 +44,7 @@ function CreateAccountForm({onLogin}){
         });
       }
 
+
       return(
         <form onSubmit={handleSubmit}>
             <label>First Name</label>
@@ -90,14 +91,14 @@ function CreateAccountForm({onLogin}){
             onChange={(e) => setUsername(e.target.value) }/>
             <label>Password</label>
             <input
-            type="text"
+            type="password"
             id="password"
             value={password}
             autoComplete="off"
             onChange={(e) => setPassword(e.target.value) }/>
             <label>confirm password</label>
             <input
-            type="text"
+            type="password"
             id="password_confirmation"
             value={passwordConfirmation}
             autoComplete="off"

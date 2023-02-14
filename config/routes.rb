@@ -14,5 +14,6 @@ Rails.application.routes.draw do
 
   get "/posts", to: "posts#index"
   get "user_posts/:id", to: "posts#user_posts"
+  
 
 end
