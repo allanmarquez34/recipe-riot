@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get "/posts", to: "posts#index"
   get "user_posts/:id", to: "posts#user_posts"
   
+  get "/post_comments/:id", to: "comments#post_comments"
 
 end

@@ -33,49 +33,49 @@ console.log(posts)
             <label>Recipe Name</label>
                 <input 
                 id="recipe_name"
-                name="recipeName"
+                name="recipe_name"
                 onChange={handleChange}
                 value={recipe_name}/>
 
             <label>Picture</label>
                 <input 
                 id="recipe_image"
-                name="recipeImage"
+                name="recipe_image"
                 onChange={handleChange}
                 value={recipe_image}/>
         
             <label>Description</label>
                 <input 
                 id="recipe_description"
-                name="recipeDescription"
+                name="recipe_description"
                 onChange={handleChange}
                 value={posts.recipe_description}/>
                    
             <label>Ingredients</label>
                 <input 
                 id="recipe_ingredient"
-                name="recipeIngredient"
+                name="recipe_ingredient"
                 onChange={handleChange}
                 value={posts.recipe_ingredient}/>
                 
             <label>Difficulty</label>
                 <input 
                 id="recip_difficulty"
-                name="recipeDifficulty"
+                name="recipe_difficulty"
                 onChange={handleChange}
                 value={posts.recipe_difficulty}/>
 
             <label>Prep Time</label>
                 <input 
                 id="prep_time"
-                name="prepTime"
+                name="prep_time"
                 onChange={handleChange}
                 value={posts.prep_time}/>
 
             <label>cookTime</label>
                 <input 
                 id="cook_time"
-                name="cookTime"
+                name="cook_time"
                 onChange={handleChange}
                 value={posts.cook_time}/>
             <button type="submit">update Recipe</button>

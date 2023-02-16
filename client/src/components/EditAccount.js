@@ -50,8 +50,9 @@ function EditAccount({user}){
             <label>First Name</label>
                 <input
                 type="text"
+                name="first_name"
                 id="first_name"
-                value={editFirstName}
+                value={user.first_name}
                 autoComplete="off"
                 onChange={(e) => setFirstName(e.target.value) }/>
             <label>Last Name</label>

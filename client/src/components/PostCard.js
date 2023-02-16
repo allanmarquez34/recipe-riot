@@ -1,10 +1,17 @@
 import React from "react"
+import {useHistory} from "react-router-dom"
 
-function PostCard({posts}){
+function PostCard({posts, onSelectedPost}){
     const user = posts.user
+    const history = useHistory()
     
+    function handleClick(){
+        onSelectedPost(posts)
+        history.push(`/one_post/${posts.id}`)
+    }
+
 return(
-    <div>
+    <div onClick ={handleClick}>
         <img src={user.image}/>
         <h3>{user.first_name}</h3>
         <p>@{user.username}</p>

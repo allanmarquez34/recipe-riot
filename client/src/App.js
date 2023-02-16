@@ -7,6 +7,7 @@ import Post from "./components/Post";
 import Account from "./components/Account";
 import EditAccount from "./components/EditAccount";
 import EditPost from "./components/EditPost";
+import PostPage from "./components/PostPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -61,7 +62,8 @@ function App() {
 
         <Route exact path = "/">
           <Home 
-            posts={posts}/>
+            posts={posts}
+            onSelectedPost={setSelectedPost}/>
         </Route>
 
         <Route path = "/post">
@@ -88,6 +90,11 @@ function App() {
             posts={selectedPost}
             onChangeForm={handleChangeForm}
             onEditPost={handleEditPost}/>
+        </Route>
+
+        <Route path= "/one_post/:id">
+          <PostPage 
+            posts={selectedPost}/>
         </Route>
 
       </Switch>

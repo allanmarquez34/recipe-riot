@@ -1,13 +1,14 @@
 import React,{useState, useEffect} from "react"
 import PostCard from "./PostCard"
 
-function Home({posts}){
+function Home({posts, onSelectedPost}){
 
     const mappedPosts = posts.map(onePost => {
 
         return <PostCard
                 key={onePost.id}
-                posts={onePost}/>
+                posts={onePost}
+                onSelectedPost={onSelectedPost}/>
     })
     
 return(
