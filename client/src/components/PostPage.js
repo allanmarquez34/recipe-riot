@@ -4,6 +4,7 @@ import CommentCard from "./CommentCard"
 function PostPage({posts }){
     const user = posts.user 
     const [comment, setComment] = useState([])
+    const [content, setContent] = useState("")
 
     useEffect(() => {
         fetch(`/post_comments/${posts.id}`)
@@ -11,8 +12,37 @@ function PostPage({posts }){
         .then((postComments) => setComment(postComments))
     }, [posts])
 
+    function handleMakeComment(newComment){
+        setComment([...comment, newComment])
+    }
+    
+    function handleChange(event){
+        setComment({
+         ...comment,
+         [event.target.name]: event.target.value,
+        })
+    }
+
+    function handleSubmit(){
+        const newComment = {
+            content: content,
+            user_id: user.id,
+            post_id: posts.id
+        }
+
+        fetch("/comments",{
+            method: "POST",
+            headers: {
+                "Content-Type" : "application/json",
+            },
+            body: JSON.stringify(newComment),
+        })
+        .then((r) => r.json())
+        .then(handleMakeComment)
+    }
+
     const mappedComments = comment.map(comment => {
-        return <CommentCard key={comment.id}/>
+        return <CommentCard key={comment.id} comment={comment}/>
     })
 
     return(
@@ -32,6 +62,12 @@ function PostPage({posts }){
                 <h3>Comments</h3>
                 <div>{mappedComments}</div>
             </div>
+
+            <form onSubmit={handleSubmit}>
+                <h3>What are your thoughts?</h3>
+                <input onChange ={handleChange} value = {comment.content} type="text"/>
+                <button>post comment</button>
+            </form>
 
         </div>
     )
