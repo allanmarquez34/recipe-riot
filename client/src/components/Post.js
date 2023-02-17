@@ -45,57 +45,59 @@ function Post({onMakePost, user}){
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            <h3>Post new recipe</h3>
-                <label>Recipe Name</label>
+        <form onSubmit={handleSubmit} className="container">
+            <h3 className="postnew">Post new recipe</h3>
+                <label className="frlabel">Recipe Name</label>
                     <input 
                     id="recipe_name"
                     name="recipeName"
                     onChange={handleChange}
                     value={formData.recipeName}/>
 
-                <label>Picture</label>
+                <label className="frlabel">Picture</label>
                     <input 
                     id="recipe_image"
                     name="recipeImage"
                     onChange={handleChange}
                     value={formData.recipeImage}/>
             
-                <label>Description</label>
+                <label className="frlabel">Description</label>
                     <input 
                     id="recipe_description"
                     name="recipeDescription"
                     onChange={handleChange}
                     value={formData.recipeDescription}/>
                        
-                <label>Ingredients</label>
+                <label className="frlabel">Ingredients</label>
                     <input 
                     id="recipe_ingredient"
                     name="recipeIngredient"
                     onChange={handleChange}
                     value={formData.recipeIngredient}/>
                     
-                <label>Difficulty</label>
+                <label className="frlabel">Difficulty</label>
                     <input 
                     id="recip_difficulty"
                     name="recipeDifficulty"
                     onChange={handleChange}
                     value={formData.recipeDifficulty}/>
 
-                <label>Prep Time</label>
+                <label className="frlabel">Prep Time</label>
                     <input 
                     id="prep_time"
                     name="prepTime"
                     onChange={handleChange}
                     value={formData.prepTime}/>
 
-                <label>cookTime</label>
+                <label className="frlabel">cookTime</label>
                     <input 
                     id="cook_time"
                     name="cookTime"
                     onChange={handleChange}
                     value={formData.cookTime}/>
-                <button type="submit">Post Recipe</button>
+                    <div className="updatebutton">
+                <button  class="button-28" role="button" type="submit">Post Recipe</button>
+                </div>
         </form>
     )
 

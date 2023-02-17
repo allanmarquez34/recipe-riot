@@ -12,18 +12,18 @@ function NavBar({setUser}){
 
     return(
         <nav>
-            <Link to="/">
-                Recipe Riot
-            </Link>
-            <NavLink to="/post">
-                Make post
-            </NavLink>
-            <NavLink to="/account">
-                Profile
-            </NavLink>
-            <button onClick={handleLogoutClick}>
-                Logout
-            </button> 
+                <Link to="/" className="nav">
+                    Recipe Riot
+                </Link>
+                <NavLink to="/post" className="nav">
+                    Make post
+                </NavLink>
+                <NavLink to="/account" className="nav">
+                    Profile
+                </NavLink>
+                    <button class="button-26" role="button" onClick={handleLogoutClick} >
+                        Logout
+                    </button>
         </nav>
     )
 }

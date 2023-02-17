@@ -70,7 +70,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_31_213913) do
     t.string "email"
     t.string "username"
     t.string "password_digest"
-    t.integer "birthday"
     t.string "image"
     t.string "background_image"
     t.datetime "created_at", null: false

@@ -18,18 +18,27 @@ function Account({user, posts, onSelectedPost, onPostDelete}){
                                onSelectedPost={onSelectedPost}
                                onPostDelete={onPostDelete}/>
     })
-   
+   console.log(user)
 
     return(
         <div>
-            <section>
-                <h1>Profile</h1>
-                <img src={user.background_image}/>
-                <img src={user.image}/>
-                <h3>{user.first_name} {user.last_name}</h3>
-                <p>@{user.username} {user.email}</p>
-            </section>
-             <Link to="/edit_account">update user</Link>
+            <section className="profile">
+                
+                <div className="backgroundimagecontainer">
+                    <img className="backgroundimage"src={user.background_image}/>
+                </div>
+                <div className="profileeimage">
+                    <img className="profileimage"src={user.image}/>
+                </div>
+                <div className="username">
+                <Link className="edituser" to="/edit_account">
+                        <button class="button-27" role="button" >Update Profile Information</button>
+                    </Link>
+                    <h3 className="name">{user.first_name} {user.last_name}</h3>
+                    <p className="user">@{user.username} | {user.email}</p>
+                </div>
+        
+             </section>
             <section>
                 {mappedPosts}
             </section>

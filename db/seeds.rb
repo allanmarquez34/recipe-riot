@@ -4,8 +4,7 @@ a1 = User.create(first_name: "Alex",
                 last_name: "Martinez",
                 email: "alex@email.com",
                 username: "alexm",
-                password_digest: "123",
-                birthday: 2000/20/3,
+                password: "123",
                 image:"image",
                 background_image: "image")
 

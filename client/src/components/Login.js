@@ -7,13 +7,14 @@ function Login({onLogin}){
 
     return(
         <div>
-            <h1>Recipe Riot</h1>
+            <h1 className="logo">Recipe Riot</h1>
+            <div className="container">
             {showLogin ? (
              <div>
                 <LoginForm onLogin={onLogin}/>
-                <p>
+                <p className="frlabel">
                     Dont have an account? &nbsp;
-                    <button onClick={() => setShowLogin(false)}>
+                    <button class="button-28" role="button" onClick={() => setShowLogin(false)}>
                      Sign Up
                     </button>
                 </p>
@@ -21,14 +22,15 @@ function Login({onLogin}){
             ) : (
               <div>
                  <CreateAccountForm onLogin={onLogin}/>
-                 <p>
-                    Already Have an Account? &nbsp;
-                    <button onClick={()=> setShowLogin(true)}>
+                 <p className="frlabel">
+                     Already Have an Account? &nbsp;
+                    <button class="button-28" role="button" onClick={()=> setShowLogin(true)}>
                         Log In
                     </button>
                  </p>
               </div>
             )}  
+            </div>
         </div>
     )
 }

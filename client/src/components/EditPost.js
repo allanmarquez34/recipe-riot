@@ -28,57 +28,57 @@ function EditPost({posts, onChangeForm, onEditPost}){
 
 console.log(posts)
     return(
-        <form onSubmit={handleSubmit}>
-        <h3>Edit Recipe</h3>
-            <label>Recipe Name</label>
+        <form className="container" onSubmit={handleSubmit}>
+        <h3 className="postnew">Edit Recipe</h3>
+            <label className="frlabel">Recipe Name</label>
                 <input 
                 id="recipe_name"
                 name="recipe_name"
                 onChange={handleChange}
                 value={recipe_name}/>
 
-            <label>Picture</label>
+            <label className="frlabel">Picture</label>
                 <input 
                 id="recipe_image"
                 name="recipe_image"
                 onChange={handleChange}
                 value={recipe_image}/>
         
-            <label>Description</label>
+            <label className="frlabel">Description</label>
                 <input 
                 id="recipe_description"
                 name="recipe_description"
                 onChange={handleChange}
                 value={posts.recipe_description}/>
                    
-            <label>Ingredients</label>
+            <label className="frlabel">Ingredients</label>
                 <input 
                 id="recipe_ingredient"
                 name="recipe_ingredient"
                 onChange={handleChange}
                 value={posts.recipe_ingredient}/>
                 
-            <label>Difficulty</label>
+            <label className="frlabel">Difficulty</label>
                 <input 
                 id="recip_difficulty"
                 name="recipe_difficulty"
                 onChange={handleChange}
                 value={posts.recipe_difficulty}/>
 
-            <label>Prep Time</label>
+            <label className="frlabel">Prep Time</label>
                 <input 
                 id="prep_time"
                 name="prep_time"
                 onChange={handleChange}
                 value={posts.prep_time}/>
 
-            <label>cookTime</label>
+            <label className="frlabel">cookTime</label>
                 <input 
                 id="cook_time"
                 name="cook_time"
                 onChange={handleChange}
                 value={posts.cook_time}/>
-            <button type="submit">update Recipe</button>
+            <button class="button-28" role="button" type="submit">update Recipe</button>
     </form>
     )
 }

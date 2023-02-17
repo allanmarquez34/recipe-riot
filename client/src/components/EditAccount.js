@@ -11,9 +11,9 @@ function EditAccount({user}){
     const [editPassword, setPassword] = useState("");
     const [editPasswordConfirmation, setPasswordConfirmation] = useState("");
     const [editAccount, setEditAccount] = useState("")
-    const [errors, setErrors] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
     const history = useHistory()
+
+    console.log(editAccount)
 
     function handleSubmit(e){
         e.preventDefault()
@@ -24,7 +24,7 @@ function EditAccount({user}){
             email: editEmail, 
             username: editUsername, 
             image: editImage,
-            background_imag: editBackgroundImage,
+            background_image: editBackgroundImage,
             password: editPassword,
             password_confirmation: editPasswordConfirmation
         }
@@ -46,70 +46,70 @@ function EditAccount({user}){
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            <label>First Name</label>
+        <form className="container"onSubmit={handleSubmit}>
+         <div className="signup">
+            <label className="frlabel" >First Name</label>
                 <input
-                type="text"
-                name="first_name"
-                id="first_name"
-                value={user.first_name}
-                autoComplete="off"
-                onChange={(e) => setFirstName(e.target.value) }/>
-            <label>Last Name</label>
-            <input
-                type="text"
-                id="last_name"
-                value={editLastName}
-                autoComplete="off"
-                onChange={(e) => setLastName(e.target.value) }/>
-            <label>Email</label>
+                    type="text"
+                    name="editFirstName"
+                    id="editFirstName"
+                    value={editFirstName}
+                    autoComplete="off"
+                    onChange={(e) => setFirstName(e.target.value) }/>
+            <label className="frlabel">Last Name</label>
                 <input
-                type="text"
-                id="email"
-                value={editEmail}
-                autoComplete="off"
-                onChange={(e) => setEmail(e.target.value) }/>
-            <label>Photo</label>
+                    type="text"
+                    id="last_name"
+                    value={editLastName}
+                    autoComplete="off"
+                    onChange={(e) => setLastName(e.target.value) }/>
+            <label className="frlabel">Email</label>
                 <input
-                type="text"
-                id="image"
-                value={editImage}
-                autoComplete="off"
-                onChange={(e) => setImage(e.target.value) }/>
-            <label>Cover Photo</label>
+                    type="text"
+                    id="email"
+                    value={editEmail}
+                    autoComplete="off"
+                    onChange={(e) => setEmail(e.target.value) }/>
+            <label className="frlabel">Photo</label>
                 <input
-                type="text"
-                id="background_image"
-                value={editBackgroundImage}
-                autoComplete="off"
-                onChange={(e) => setBackgroundImage(e.target.value) }/>
-            <label>Username</label>
+                    type="text"
+                    id="image"
+                    value={editImage}
+                    autoComplete="off"
+                    onChange={(e) => setImage(e.target.value) }/>
+            <label className="frlabel">Cover Photo</label>
                 <input
-                type="text"
-                id="username"
-                value={editUsername}
-                autoComplete="off"
-                onChange={(e) => setUsername(e.target.value) }/>
-            <label>Password</label>
+                    type="text"
+                    id="backgroundImage"
+                    value={editBackgroundImage}
+                    autoComplete="off"
+                    onChange={(e) => setBackgroundImage(e.target.value) }/>
+            <label className="frlabel">Username</label>
                 <input
-                type="text"
-                id="password"
-                value={editPassword}
-                autoComplete="off"
-                onChange={(e) => setPassword(e.target.value) }/>
-            <label>confirm password</label>
+                    type="text"
+                    id="username"
+                    value={editUsername}
+                    autoComplete="off"
+                    onChange={(e) => setUsername(e.target.value) }/>
+            <label className="frlabel">Password</label>
                 <input
-                type="password"
-                id="password_confirmation"
-                value={editPasswordConfirmation}
-                autoComplete="off"
-                onChange={(e) => setPasswordConfirmation(e.target.value) }/>
-            <button type="submit">{isLoading ? "Loading..." : "update profile"}</button>
-                <div>
-                {errors.map((err) => (
-                <p key={err}>{err}</p>
-                ))}
+                    type="text"
+                    id="password"
+                    value={editPassword}
+                    autoComplete="off"
+                    onChange={(e) => setPassword(e.target.value) }/>
+            <label className="frlabel">confirm password</label>
+                <input
+                    type="text"
+                    id="passwordConfirmation"
+                    value={editPasswordConfirmation}
+                    autoComplete="off"
+                    onChange={(e) => setPasswordConfirmation(e.target.value) }/>
+                <div className="updatebutton">
+                    <button  class="button-28" role="button" type="submit">update profile</button>
                 </div>
+            
+            </div>
         </form>
     )
 }

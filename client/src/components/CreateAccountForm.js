@@ -1,13 +1,12 @@
 import React, {useState} from "react"
 
 function CreateAccountForm({onLogin}){
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
+    const [first_name, setFirstName] = useState("")
+    const [last_name, setLastName] = useState("")
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
-    // const [birthday, setBirthday ] = useState("")
     const [image, setImage] = useState("")
-    const [backgroundImage, setBackgroundImage] = useState("")
+    const [background_image, setBackgroundImage] = useState("")
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [password, setPassword] = useState("");
@@ -23,14 +22,13 @@ function CreateAccountForm({onLogin}){
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            first_name: firstName,
-            last_name: lastName,
-            // birthday,
+            first_name,
+            last_name,
             image,
-            background_image: backgroundImage,
+            background_image,
             username,
             email,
-            password_digest: password,
+            password,
             password_confirmation: passwordConfirmation,
     
           }),
@@ -44,70 +42,71 @@ function CreateAccountForm({onLogin}){
         });
       }
 
-
       return(
         <form onSubmit={handleSubmit}>
-            <label>First Name</label>
-            <input
-            type="text"
-            id="first_name"
-            value={firstName}
-            autoComplete="off"
-            onChange={(e) => setFirstName(e.target.value) }/>
-            <label>Last Name</label>
-            <input
-            type="text"
-            id="last_name"
-            value={lastName}
-            autoComplete="off"
-            onChange={(e) => setLastName(e.target.value) }/>
-            <label>Email</label>
-            <input
-            type="text"
-            id="email"
-            value={email}
-            autoComplete="off"
-            onChange={(e) => setEmail(e.target.value) }/>
-            <label>Photo</label>
-            <input
-            type="text"
-            id="image"
-            value={image}
-            autoComplete="off"
-            onChange={(e) => setImage(e.target.value) }/>
-            <label>Cover Photo</label>
-            <input
-            type="text"
-            id="background_image"
-            value={backgroundImage}
-            autoComplete="off"
-            onChange={(e) => setBackgroundImage(e.target.value) }/>
-            <label>Username</label>
-            <input
-            type="text"
-            id="username"
-            value={username}
-            autoComplete="off"
-            onChange={(e) => setUsername(e.target.value) }/>
-            <label>Password</label>
-            <input
-            type="password"
-            id="password"
-            value={password}
-            autoComplete="off"
-            onChange={(e) => setPassword(e.target.value) }/>
-            <label>confirm password</label>
-            <input
-            type="password"
-            id="password_confirmation"
-            value={passwordConfirmation}
-            autoComplete="off"
-            onChange={(e) => setPasswordConfirmation(e.target.value) }/>
-            <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+          <div className="signup">
+            <label className="frlabel">First Name</label>
+              <input
+                type="text"
+                id="first_name"
+                value={first_name}
+                autoComplete="off"
+                onChange={(e) => setFirstName(e.target.value) }/>
+            <label className="frlabel">Last Name</label>
+              <input
+                type="text"
+                id="last_name"
+                value={last_name}
+                autoComplete="off"
+                onChange={(e) => setLastName(e.target.value) }/>
+            <label className="frlabel">Email</label>
+              <input
+                type="text"
+                id="email"
+                value={email}
+                autoComplete="off"
+                onChange={(e) => setEmail(e.target.value) }/>
+            <label className="frlabel">Photo</label>
+              <input
+                type="text"
+                id="image"
+                value={image}
+                autoComplete="off"
+                onChange={(e) => setImage(e.target.value) }/>
+            <label className="frlabel">Cover Photo</label>
+              <input
+                type="text"
+                id="backgroundImage"
+                value={background_image}
+                autoComplete="off"
+                onChange={(e) => setBackgroundImage(e.target.value) }/>
+            <label className="frlabel">Username</label>
+              <input
+                type="text"
+                id="username"
+                value={username}
+                autoComplete="off"
+                onChange={(e) => setUsername(e.target.value) }/>
+            <label className="frlabel">Password</label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                autoComplete="off"
+                onChange={(e) => setPassword(e.target.value) }/>
+            <label className="frlabel">confirm password</label>
+              <input
+                type="password"
+                id="passwordConfirmation"
+                value={passwordConfirmation}
+                autoComplete="off"
+                onChange={(e) => setPasswordConfirmation(e.target.value) }/>
+            <button class="button-28" role="button" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+            </div>
                 <div>
-                {errors.map((err) => (
-                <p key={err}>{err}</p>
-                ))}
+                  {errors.map((err) => (
+                  <p key={err}>{err}</p>
+                  ))}
                 </div>
         </form>
       )
