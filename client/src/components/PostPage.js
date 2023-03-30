@@ -43,15 +43,19 @@ console.log(id)
         .then((r) => r.json())
         .then(handleMakeComment)
     }
-    // console.log(comment)
-    // console.log(posts)
+    console.log(comment)
+    console.log(posts)
+
     // if (comment === undefined) return <h2>Loading...</h2>
     
     // const mappedComments = comment.map(comments => {
     //     return <CommentCard key={comments.id} comments={comments}/>
     // })
 
+    const mappedComments = comment.map(comments => {
+        return <commentCard key={comment.id} comments={comments}/>})
 
+    console.log(user)
 
     return(
         <div className="container">
@@ -68,6 +72,10 @@ console.log(id)
                     <p>prep time {posts?.prep_time} min | cook time {posts?.cook_time} min | difficulty level {posts?.recipe_diffuculty}</p>
                     <p>{posts?.recipe_ingredient}</p>
                     <p>{posts?.recipe_description}</p>
+            </div>
+
+            <div>
+                {mappedComments}
             </div>
 
             {/* <div> */}
